@@ -1,0 +1,3 @@
+# Cloudflare Pages Redirects
+/old-api/* https://api.file2vedio.com/new-api/:splat 301
+/legacy/* /new/:splat 301

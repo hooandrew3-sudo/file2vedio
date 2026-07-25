@@ -1,0 +1,36 @@
+/**
+ * Cloudflare Pages configuration and routing
+ */
+
+// Redirect map for legacy URLs
+const redirects = {
+  '/old-url': '/new-url',
+};
+
+// Rewrite rules for API proxying
+const rewrites = [
+  {
+    source: '/api/*',
+    destination: 'https://api-backend.file2vedio.com/:splat',
+  },
+];
+
+// Security headers
+const securityHeaders = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
+};
+
+// Cache control headers
+const cacheHeaders = {
+  '/index.html': 'no-cache',
+  '/api/*': 'no-cache',
+  '/*.js': 'public, max-age=31536000, immutable',
+  '/*.css': 'public, max-age=31536000, immutable',
+  '/*.woff2': 'public, max-age=31536000, immutable',
+};
+
+export { redirects, rewrites, securityHeaders, cacheHeaders };
