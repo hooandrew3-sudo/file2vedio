@@ -1,25 +1,53 @@
+# Git ignore file for File2Vedio
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
 venv/
 env/
-.venv
+ENV/
+env.bak/
+venv.bak/
 
-# Flask
-instance/
-.webassets-cache
-
-# IDEs
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.DS_Store
 
-# Project files
+# Flask
+instance/
+.webassets-cache
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Project specific
 uploads/
 output_videos/
 temp/
@@ -29,7 +57,21 @@ temp/
 *.srt
 *.vtt
 .env
+!.env.example
 
 # OS
 .DS_Store
 Thumbs.db
+.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.dockerignore

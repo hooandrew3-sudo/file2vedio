@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  file2vedio:
+    build: .
+    container_name: file2vedio
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./output_videos:/app/output_videos
+      - ./temp:/app/temp
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=False
+      - HOST=0.0.0.0
+      - PORT=5000
+      - TTS_VOICE=zh-CN-XiaoxiaoNeural
+      - TTS_RATE=0.9
+      - VIDEO_DURATION=180
+      - VIDEO_FPS=24
+      - VIDEO_WIDTH=1280
+      - VIDEO_HEIGHT=720
+    restart: unless-stopped
+    networks:
+      - file2vedio-network
+
+networks:
+  file2vedio-network:
+    driver: bridge
+
+volumes:
+  uploads:
+  output_videos:
+  temp:
