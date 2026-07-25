@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File2Vedio - 文章转视频生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎬 File2Vedio</h1>
+            <p>从文章生成3分钟视频</p>
+        </header>
+
+        <div class="content">
+            <!-- Upload Form Section -->
+            <section class="upload-section">
+                <h2>上传文章</h2>
+                <form id="uploadForm" class="upload-form">
+                    <div class="form-group">
+                        <label for="title">文章标题</label>
+                        <input type="text" id="title" name="title" placeholder="输入文章标题" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">文章内容</label>
+                        <textarea id="content" name="content" placeholder="粘贴或输入文章内容..." rows="8" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="voice">配音选择</label>
+                        <select id="voice" name="voice">
+                            <option value="zh-CN-XiaoxiaoNeural">中文女性 (小晓)</option>
+                            <option value="zh-TW-HsiaoChenNeural">繁体女性 (晓晨)</option>
+                            <option value="en-US-AriaNeural">英文女性 (Aria)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">开始生成视频</button>
+                </form>
+            </section>
+
+            <!-- Status Section -->
+            <section id="statusSection" class="status-section" style="display: none;">
+                <h2>处理进度</h2>
+                <div class="status-card">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <p id="progressText" class="progress-text">准备中... 0%</p>
+                    <p id="statusText" class="status-text">正在处理，请稍候...</p>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section id="resultSection" class="result-section" style="display: none;">
+                <h2>生成完成</h2>
+                <div class="result-card">
+                    <p class="result-message" id="resultMessage">视频已生成！</p>
+                    <button id="downloadBtn" class="btn btn-success">📥 下载视频 (MP4)</button>
+                    <button id="resetBtn" class="btn btn-secondary">↻ 生成新视频</button>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section" style="display: none;">
+                <h2>处理出错</h2>
+                <div class="error-card">
+                    <p id="errorMessage" class="error-message">发生错误</p>
+                    <button id="retryBtn" class="btn btn-secondary">🔄 重试</button>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>File2Vedio © 2024 | 从文章到视频的魔法转换</p>
+            <p class="tech-stack">技术栈: Flask + moviepy + Edge TTS + FFmpeg</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
