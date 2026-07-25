@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+
+# Flask
+instance/
+.webassets-cache
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project files
+uploads/
+output_videos/
+temp/
+*.mp4
+*.wav
+*.mp3
+*.srt
+*.vtt
+.env
+
+# OS
+.DS_Store
+Thumbs.db
